@@ -1,6 +1,6 @@
 <template functional>
     <div>
-        <img v-if="props.product.image" class="w-full" :src="product.image" :alt="product.name">
+        <img v-if="props.product.image" class="w-full" :src="props.product.image" :alt="props.product.name">
         <h3>{{ props.product.name }}</h3>
         <p>{{ props.product.description }}</p>
     </div>

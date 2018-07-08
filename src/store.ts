@@ -21,7 +21,18 @@ export default new Vuex.Store({
       newState.basket.push(product);
     },
     newProduct(newState, product: IProduct) {
+      const lastElement = Object.keys(newState.products).pop();
+      product.key = lastElement ? `${parseInt(lastElement, 10) + 1}` : '1';
+
       newState.products.push(product);
     },
+    updateProduct(newState, updatedProduct: IProduct) {
+      if (! updatedProduct.key) {
+        throw new Error('A product must exist to be updated');
+      }
+
+      newState.products = newState.products
+        .map((product) => product.key === updatedProduct.key ? updatedProduct : product);
+    }
   },
 });

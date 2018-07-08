@@ -8,7 +8,7 @@
                 </router-link>
             </div>
             <ProductList class="flex p-4">
-                <div slot-scope="{ addToBasket, product }" class="w-1/3">
+                <div slot-scope="{ addToBasket, updateProduct, product }" class="w-1/3">
                     <Card>
                         <ProductSummary :product="product"></ProductSummary>
                         <button class="w-full button" @click="addToBasket(product)">Add to basket</button>

@@ -20,5 +20,9 @@
     public addToBasket(product: IProduct) {
       store.commit('addToBasket', product);
     }
+
+    public updateProduct(product: IProduct) {
+      store.commit('updateProduct', product);
+    }
   }
 </script>
