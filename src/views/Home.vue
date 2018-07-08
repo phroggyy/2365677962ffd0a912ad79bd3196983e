@@ -1,5 +1,5 @@
 <template>
-    <div class="container h-full flex">
+    <div class="container h-full flex flex-col-reverse md:flex-row">
         <div class="flex-1">
             <div class="flex justify-between align-middle">
                 <h1>Products</h1>
@@ -17,7 +17,7 @@
                 <p slot="empty">No products yet</p>
             </ProductList>
         </div>
-        <router-view class="w-1/4"></router-view>
+        <router-view class="w-full md:w-1/3 lg:w-1/4"></router-view>
     </div>
 </template>
 
