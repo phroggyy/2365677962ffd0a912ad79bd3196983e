@@ -13,24 +13,24 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator';
-    import {IProduct} from '../entities/Product';
-    import store from '../store';
+  import { Component, Vue } from 'vue-property-decorator';
+  import { IProduct } from '../entities/Product';
+  import store from '../store';
 
-    @Component({})
-    export default class CreateProduct extends Vue {
-        public product: IProduct = {
-            name: '',
-            image: '',
-            description: '',
-        };
+  @Component({})
+  export default class CreateProduct extends Vue {
+    public product: IProduct = {
+      name: '',
+      image: '',
+      description: '',
+    };
 
-        public createNewProduct() {
-            store.commit('newProduct', this.product);
+    public createNewProduct() {
+      store.commit('newProduct', this.product);
 
-            this.$router.push({ name: 'home' });
-        }
+      this.$router.push({ name: 'home' });
     }
+  }
 </script>
 
 <style lang="scss" scoped>

@@ -6,18 +6,18 @@ import CreateProduct from './views/CreateProduct.vue';
 Vue.use(Router);
 
 export default new Router({
-    routes: [
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+      children: [
         {
-            path: '/',
-            name: 'home',
-            component: Home,
-            children: [
-                {
-                    path: 'create',
-                    name: 'createProduct',
-                    component: CreateProduct,
-                },
-            ],
+          path: 'create',
+          name: 'createProduct',
+          component: CreateProduct,
         },
-    ],
+      ],
+    },
+  ],
 });
