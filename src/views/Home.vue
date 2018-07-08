@@ -10,7 +10,7 @@
             <ProductList class="flex p-4">
                 <div slot-scope="{ addToBasket, product }" class="w-1/3">
                     <Card>
-                        <ProductSummary></ProductSummary>
+                        <ProductSummary :product="product"></ProductSummary>
                         <button class="w-full button" @click="addToBasket(product)">Add to basket</button>
                     </Card>
                 </div>
@@ -22,13 +22,15 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from "vue-property-decorator";
-  import ProductList from "../components/ProductList.vue";
-  import Card from "../components/Card.vue";
+  import { Component, Vue } from 'vue-property-decorator';
+  import ProductList from '../components/ProductList.vue';
+  import ProductSummary from '../components/ProductSummary.vue';
+  import Card from '../components/Card.vue';
 
   @Component({
     components: {
       ProductList,
+      ProductSummary,
       Card,
     },
   })

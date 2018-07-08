@@ -1,12 +1,16 @@
 <template functional>
-    <img v-if="product.image" class="w-full" :src="product.image" :alt="product.name">
-    <h3>{{ product.name }}</h3>
-    <p>{{ product.description }}</p>
+    <div>
+        <img v-if="props.product.image" class="w-full" :src="product.image" :alt="product.name">
+        <h3>{{ props.product.name }}</h3>
+        <p>{{ props.product.description }}</p>
+    </div>
 </template>
 <script lang="ts">
-  import { Component } from 'vue-property-decorator';
+  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { IProduct } from '../entities/Product';
 
   @Component
-  export default class ProductSummary {
+  export default class ProductSummary extends Vue {
+    @Prop() public product?: IProduct;
   }
 </script>
