@@ -41,8 +41,7 @@
 <style lang="scss">
     .product-list {
         display: grid;
-        grid-auto-columns: 1fr;
-        grid-template-areas: "a a a";
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-gap: 1rem;
     }
 </style>
