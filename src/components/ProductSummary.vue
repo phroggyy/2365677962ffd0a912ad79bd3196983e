@@ -12,5 +12,6 @@
   @Component
   export default class ProductSummary extends Vue {
     @Prop() public product?: IProduct;
+    @Prop({ default: false }) public editable?: boolean;
   }
 </script>

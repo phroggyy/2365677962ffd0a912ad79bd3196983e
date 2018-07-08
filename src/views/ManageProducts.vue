@@ -7,11 +7,11 @@
                     product
                 </router-link>
             </div>
-            <ProductList class="p-4 product-list">
-                <div slot-scope="{ addToBasket, updateProduct, product }">
+            <ProductList class="p-4 item-grid">
+                <div slot-scope="{ updateProduct, product }">
                     <Card>
-                        <ProductSummary :product="product"></ProductSummary>
-                        <button class="w-full button" @click="addToBasket(product)">Add to basket</button>
+                        <ProductSummary :product="product" :editable="true"></ProductSummary>
+                        <button class="w-full button" @click="addToBasket(product)">Edit</button>
                     </Card>
                 </div>
                 <p slot="empty">No products yet</p>
@@ -34,14 +34,6 @@
       Card,
     },
   })
-  export default class Home extends Vue {
+  export default class ManageProducts extends Vue {
   }
 </script>
-
-<style lang="scss">
-    .product-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 1rem;
-    }
-</style>

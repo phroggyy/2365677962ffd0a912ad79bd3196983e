@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+import BrowseProducts from './views/BrowseProducts.vue';
+import ManageProducts from './views/ManageProducts.vue';
 import CreateProduct from './views/CreateProduct.vue';
 
 Vue.use(Router);
@@ -9,8 +10,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'browse',
+      component: BrowseProducts,
+    },
+    {
+      path: '/manage',
+      name: 'manage',
+      component: ManageProducts,
       children: [
         {
           path: 'create',
