@@ -1,14 +1,14 @@
 <template>
     <div class="container h-full flex">
         <div class="flex-1">
-            <div class="flex justify-between align-middle p-4">
+            <div class="flex justify-between align-middle">
                 <h1>Products</h1>
                 <router-link v-if="$route.name !== 'createProduct'" :to="{ name: 'createProduct' }" class="button">New
                     product
                 </router-link>
             </div>
-            <ProductList class="flex p-4">
-                <div slot-scope="{ addToBasket, updateProduct, product }" class="w-1/3 p-2">
+            <ProductList class="p-4 product-list">
+                <div slot-scope="{ addToBasket, updateProduct, product }">
                     <Card>
                         <ProductSummary :product="product"></ProductSummary>
                         <button class="w-full button" @click="addToBasket(product)">Add to basket</button>
@@ -37,3 +37,12 @@
   export default class Home extends Vue {
   }
 </script>
+
+<style lang="scss">
+    .product-list {
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-template-areas: "a a a";
+        grid-gap: 1rem;
+    }
+</style>
