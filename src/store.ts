@@ -4,18 +4,24 @@ import {IProduct} from '@/entities/Product';
 
 Vue.use(Vuex);
 
+interface State {
+    products: IProduct[];
+    basket: IProduct[];
+}
+
+const state: State = {
+    products: [],
+    basket: [],
+};
+
 export default new Vuex.Store({
-  state: {
-      products: [],
-      basket: [],
-  },
+  state,
   mutations: {
-      addToBasket(state, product: IProduct) {
-        state.basket.push(product);
+      addToBasket(newState, product: IProduct) {
+        newState.basket.push(product);
       },
-      newProduct(state, product: IProduct) {
-          console.log(state);
-          state.products = state.products.push(product);
+      newProduct(newState, product: IProduct) {
+          newState.products.push(product);
       },
   },
 });

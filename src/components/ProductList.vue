@@ -1,21 +1,23 @@
+<template>
+    <div>
+        <slot v-for="product of products" :product="product" :addToBasket="addToBasket"></slot>
+        <slot name="empty"></slot>
+    </div>
+</template>
+
 <script lang="ts">
-    import { Component } from "vue-property-decorator";
+    import { Component, Vue } from 'vue-property-decorator';
     import store from '../store';
     import {IProduct} from '../entities/Product';
 
-    @Component({
-        functional: true
-    })
-    export default class ProductList {
-        render(h, { slots }) {
-            return slots.$scopedSlots.default({
-                products: store.state.products,
-                selectedProducts: store.state.selectedProducts,
-                addToBasket: this.addToBasket,
-            });
+    @Component
+    export default class ProductList extends Vue {
+
+        public get products() {
+            return store.state.products;
         }
 
-        addToBasket(product: IProduct) {
+        public addToBasket(product: IProduct) {
             store.commit('addToBasket', product);
         }
     }

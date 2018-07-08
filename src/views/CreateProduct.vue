@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="flex flex-col text-left">
         <h2>Create a product</h2>
         <label for="name">Name*</label>
         <input type="text" v-model="product.name">
@@ -12,19 +12,19 @@
 </template>
 
 <script lang="ts">
-    import { Component } from "vue-property-decorator";
-    import {IProduct} from "../entities/Product";
-    import store from "../store";
+    import { Component, Vue } from 'vue-property-decorator';
+    import {IProduct} from '../entities/Product';
+    import store from '../store';
 
-    @Component
-    export default class CreateProduct {
-        product: IProduct = {
+    @Component({})
+    export default class CreateProduct extends Vue {
+        public product: IProduct = {
             name: '',
             image: '',
             description: '',
         };
 
-        createNewProduct() {
+        public createNewProduct() {
             store.commit('newProduct', this.product);
         }
     }
