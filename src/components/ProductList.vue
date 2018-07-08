@@ -1,7 +1,7 @@
 <template>
     <div>
         <slot v-for="product of products" :product="product" :addToBasket="addToBasket"></slot>
-        <slot name="empty"></slot>
+        <slot name="empty" v-if="! products.length"></slot>
     </div>
 </template>
 

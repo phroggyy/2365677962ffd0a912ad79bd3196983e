@@ -1,10 +1,5 @@
 <template>
-    <div id="app">
-        <div id="nav">
-            <router-link to="/">Home</router-link>
-            |
-            <router-link to="/about">About</router-link>
-        </div>
+    <div id="app" class="h-full">
         <router-view/>
     </div>
 </template>
@@ -14,7 +9,7 @@
     @tailwind utilities;
 
     .button {
-        @apply .p-4 .bg-green-light .text-white .text-center;
+        @apply .p-4 .bg-green-light .text-white .text-center .no-underline;
 
         &:hover {
             @apply .bg-green .shadow;
@@ -26,6 +21,11 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
+        @apply .bg-grey-lightest;
+    }
+
+    html, body, #app {
+        @apply .h-full;
     }
 
     #nav {
