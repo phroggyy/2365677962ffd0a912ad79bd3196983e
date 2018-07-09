@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col text-left bg-grey-lighter p-4">
-        <router-link :to="{ name: 'home' }" class="text-xl text-grey no-underline">&times;</router-link>
+        <router-link :to="{ name: 'manage' }" class="text-xl text-grey no-underline">&times;</router-link>
         <h2>Create a product</h2>
         <label for="name">Name*</label>
         <input type="text" v-model="product.name">
@@ -28,7 +28,7 @@
     public createNewProduct() {
       store.commit('newProduct', this.product);
 
-      this.$router.push({ name: 'home' });
+      this.$router.push({ name: 'manage' });
     }
   }
 </script>
